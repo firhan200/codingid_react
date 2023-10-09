@@ -1,8 +1,9 @@
-import styled from "styled-components"
+import styled from 'styled-components';
 import './Style.css'
+import { Button } from '@mui/material';
 
-const MyDiv = styled.div`
-	background-color: #bdbdbd;
+const MyYellowDiv = styled.div`
+	background-color: yellow;
 	padding: 20px;
 	text-align: center;
 `
@@ -47,35 +48,37 @@ const Style = () => {
 			marginTop: '20px',
 			marginBottom: '150px',
 		}}>
-			<div style={{
+			{/* <div style={{
 				display: 'flex',
 				flexDirection: 'column',
 				gap: '10px'
 			}}>
 				<h1>Different Ways to Style React Component:</h1>
 				<div style={{
-					backgroundColor: "#bdbdbd",
+					backgroundColor: "yellow",
 					padding: "20px",
-					textAlign: "center",
+					textAlign: "center"
 				}}>
 					<h2>Inline Styles</h2>
 				</div>
 
-				<MyDiv>
+				<MyYellowDiv>
 					<h2>Styled Components</h2>
-				</MyDiv>
+				</MyYellowDiv>
 
 				<div className="my-div">
 					<h2>Css in Css</h2>
 				</div>
-			</div>
+			</div> */}
 
 			<div>
 				<h1>Grid Examples</h1>
 				<Layout>
 					<Header>Header</Header>
 					<Nav>Nav</Nav>
-					<Main>Main</Main>
+					<Main>
+						<Button variant='contained' color='success'>Material Button</Button>
+					</Main>
 					<Aside>Aside</Aside>
 					<Footer>Footer</Footer>
 				</Layout>
@@ -85,7 +88,9 @@ const Style = () => {
 				<h1>Flex Examples</h1>
 				<div style={{
 					display: 'flex',
-					gap: '10px'
+					flexDirection: "row",
+					justifyContent: "space-evenly",
+					gap: '20px'
 				}}>
 					<div style={{
 						backgroundColor: "#bdbdbd",
@@ -95,9 +100,9 @@ const Style = () => {
 						<h2>Inline Styles</h2>
 					</div>
 
-					<MyDiv>
+					<MyYellowDiv>
 						<h2>Styled Components</h2>
-					</MyDiv>
+					</MyYellowDiv>
 
 					<div className="my-div">
 						<h2>Css in Css</h2>
