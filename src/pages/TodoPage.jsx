@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import Todo from "../components/Todo"
+import { TextField } from "@mui/material"
 
 //todos = ["makan", "minum", "rapat", "belajar"]
 //default value = []
@@ -9,7 +10,7 @@ export default function TodoPage() {
     const [todos, setTodos] = useState([])
 
     const submitTodo = (e) => {
-        e.preventDefault()
+        e.preventDefault() //should exist on every form submit
 
         setTodos([...todos, newTodo])
     }
@@ -21,13 +22,17 @@ export default function TodoPage() {
     return (
         <>
             <form onSubmit={submitTodo}>
-                <input type="text" value={newTodo} onChange={e => setNewTodo(e.target.value)}/>
+                <input type="text" value={newTodo} onChange={e => setNewTodo(e.target.value)} />
                 <button type="submit">Add</button>
             </form>
             <ul>
                 {todos.map(function (todo, key) {
                     return (
-                        <Todo key={key} whatTodo={todo} />
+                        <li key={key}>
+                            <div>
+                                <Todo whatTodo={todo} />
+                            </div>
+                        </li>
                     )
                 })}
             </ul>
