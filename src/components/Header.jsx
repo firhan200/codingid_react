@@ -1,5 +1,6 @@
 import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
+import './Header.css'
+import { NavLink } from "react-router-dom";
 
 export default function Header() {
     return (
@@ -9,14 +10,23 @@ export default function Header() {
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         React Routing Tutorial
                     </Typography>
-                    <Link to="/login">
+                    <NavLink to="/login" className={({ isActive }) => {
+                        return isActive ? "iniaktifyaa" : ""
+                    }}>
                         <Button sx={{
-                            color: "#fff"
+                            color: "white"
                         }}>Login</Button>
-                    </Link>
-                    <Link to="/register">
-                        <Button variant="contained" color="error">Register</Button>
-                    </Link>
+                    </NavLink>
+                    <NavLink
+                        to="/register"
+                        className={({ isActive }) =>
+                            isActive ? "active" : ""
+                        }
+                    >
+                        <Button sx={{
+                            color: "white"
+                        }}>Register</Button>
+                    </NavLink>
                 </Toolbar>
             </AppBar>
         </Box>

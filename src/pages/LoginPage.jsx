@@ -1,4 +1,5 @@
 import { Box, Button, Container, Stack, TextField, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 
 export default function LoginPage() {
     return (
@@ -12,6 +13,9 @@ export default function LoginPage() {
             </Stack>
             <Box textAlign="end" marginTop={5}>
                 <Button variant="contained">Login</Button>
+            </Box>
+            <Box>
+                <Typography>Dont have account? <Link to="/register">Go To Register </Link></Typography>
             </Box>
         </Container>
     )
