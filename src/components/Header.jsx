@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
@@ -14,12 +15,12 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 
 const drawerWidth = 240;
 
-function DrawerAppBar(props) {
-    const { window } = props;
+function DrawerAppBar({ children, window }) {
+    const navigate = useNavigate()
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
     const handleDrawerToggle = () => {
@@ -28,7 +29,7 @@ function DrawerAppBar(props) {
 
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-            <Typography variant="h6" sx={{ my: 2 }}>
+            <Typography onClick={() => navigate("/")} variant="h6" sx={{ my: 2 }}>
                 DLanguage
             </Typography>
             <Divider />
@@ -68,6 +69,7 @@ function DrawerAppBar(props) {
                         <MenuIcon />
                     </IconButton>
                     <Typography
+                        onClick={() => navigate("/")}
                         variant="h6"
                         component="div"
                         sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
@@ -107,7 +109,7 @@ function DrawerAppBar(props) {
             </nav>
             <Box component="main" sx={{ p: 3 }}>
                 <Toolbar />
-                {props.children}
+                {children}
             </Box>
         </Box>
     );
