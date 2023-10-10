@@ -1,30 +1,16 @@
-import { Grid, Typography } from "@mui/material"
-import { useEffect, useState } from "react"
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
+import Header from "./components/Header";
 
-export default function App() {
-	const [products, setProducts] = useState([])
-
-	useEffect(() => {
-		async function getProducts(){
-			const res = await fetch('https://dummyjson.com/products')
-			const data = await res.json()
-			setProducts(data.products)
-		}	
-
-		getProducts()
-	}, [])
-
-	return (
-		<Grid container>
-			{
-				products.map((p, key) => (
-					<Grid key={key} item xs={6} md={4} lg={3}>
-						<img src={p.thumbnail} />
-						<Typography>{ p.title }</Typography>
-						<Typography>{ p.description }</Typography>
-					</Grid>
-				))
-			}
-		</Grid>
-	)
+export default function App(){
+    return (
+        <BrowserRouter>
+            <Header />
+            <Routes>
+                <Route path="/login" Component={LoginPage} />
+                <Route path="/register" Component={RegisterPage} />
+            </Routes>
+        </BrowserRouter>
+    )
 }
