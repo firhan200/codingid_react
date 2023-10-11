@@ -1,15 +1,28 @@
 /* eslint-disable react-refresh/only-export-components */
 /* eslint-disable react/prop-types */
-import { createContext, useContext, useState } from "react";
+import axios from "axios";
+import { createContext, useContext, useEffect, useState } from "react";
 
 export const ProductsContext = createContext(null)
 
 export const ProductsProvider = ({ children }) => {
-    const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(false)
+    const [products, setProducts] = useState([])
+
+    useEffect(() => {
+        async function getProducts() {
+            setLoading(true)
+            const res = await axios.get('https://dummyjson.com/products')
+            setProducts(res.data.products)
+            setLoading(false)
+        }
+
+        getProducts()
+    }, [])
 
     return <ProductsContext.Provider value={{
+        loading,
         products,
-        setProducts
     }}>{ children }</ProductsContext.Provider>
 }
 

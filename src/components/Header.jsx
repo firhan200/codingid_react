@@ -16,10 +16,13 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
+import useProducts from '../hooks/useProducts';
 
 const drawerWidth = 240;
 
 function DrawerAppBar({ children, window }) {
+    const { products } = useProducts()
+
     const navigate = useNavigate()
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -77,6 +80,11 @@ function DrawerAppBar({ children, window }) {
                         DLanguage
                     </Typography>
                     <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+                        <NavLink to="/todos">
+                            <Button sx={{ color: '#fff' }}>
+                                Total Products: { products.length }
+                            </Button>
+                        </NavLink>
                         <NavLink to="/todos">
                             <Button sx={{ color: '#fff' }}>
                                 Todo App
