@@ -77,6 +77,11 @@ function DrawerAppBar({ children, window }) {
                         DLanguage
                     </Typography>
                     <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+                        <NavLink to="/todos">
+                            <Button sx={{ color: '#fff' }}>
+                                Todo App
+                            </Button>
+                        </NavLink>
                         <NavLink to="/login">
                             <Button sx={{ color: '#fff' }}>
                                 Login

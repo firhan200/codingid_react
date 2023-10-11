@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 export default function ProductPage() {
-    const { id } = useParams()
+    const { productId } = useParams()
 
     const [isLoading, setIsLoading] = useState(true)
     const [product, setProduct] = useState(null)
@@ -18,11 +18,11 @@ export default function ProductPage() {
             setIsLoading(false)
         }
 
-        getProduct(id)
-    }, [id])
+        getProduct(productId)
+    }, [productId])
 
     if (isLoading) {
-        return <Box>Loading...</Box>
+        return <Box>Memuat data produk...</Box>
     }
 
     if (product === null) {

@@ -17,7 +17,7 @@ export default function ProductCard({ product }) {
                 title={product.title}
             />
             <CardContent>
-                <Rating value={product.rating}/>
+                <Rating value={product.rating} readOnly/>
                 <Typography gutterBottom variant="h5" component="div">
                     {product.title}
                 </Typography>

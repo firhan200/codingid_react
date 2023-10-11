@@ -4,6 +4,7 @@ import RegisterPage from "./pages/RegisterPage";
 import Header from "./components/Header";
 import ProductPage from "./pages/ProductPage";
 import ProductsPage from "./pages/ProductsPage";
+import TodosPage from "./pages/TodosPage";
 
 export default function App() {
     return (
@@ -13,7 +14,8 @@ export default function App() {
                     <Route path="/" Component={ProductsPage}/>
                     <Route path="/login" Component={LoginPage} />
                     <Route path="/register" Component={RegisterPage} />
-                    <Route path="/products/:id" Component={ProductPage} />
+                    <Route path="/todos" Component={TodosPage} />
+                    <Route path="/products/:productId" Component={ProductPage} />
                 </Routes>
             </Header>
         </BrowserRouter>
