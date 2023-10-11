@@ -6,6 +6,7 @@ import { ThemeProvider, createTheme } from '@mui/material'
 import "@fontsource/montserrat"; // Defaults to weight 400
 import "@fontsource/montserrat/400.css"; // Specify weight
 import "@fontsource/montserrat/400-italic.css"; // Specify weight and style
+import { ProductsProvider } from './hooks/useProducts';
 
 const myTheme = createTheme({
     palette: {
@@ -22,6 +23,8 @@ const myTheme = createTheme({
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <ThemeProvider theme={myTheme}>
-        <App />
+        <ProductsProvider>
+            <App />
+        </ProductsProvider>
     </ThemeProvider>,
 )

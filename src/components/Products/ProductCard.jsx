@@ -26,7 +26,7 @@ export default function ProductCard({ product }) {
                 </Typography>
             </CardContent>
             <CardActions>
-                <Link to={`/products/${product.id}`}>
+                <Link to={`/products/${product.id}`} preventScrollReset={true}>
                     <Button size="small">Learn More</Button>
                 </Link>
             </CardActions>

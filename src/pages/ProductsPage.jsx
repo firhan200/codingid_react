@@ -1,13 +1,17 @@
+/* eslint-disable react/display-name */
 import axios from "axios";
 import { useEffect, useState } from "react";
 import ProductCard from "../components/Products/ProductCard";
 import { Grid, Skeleton, Stack } from "@mui/material";
 
-export default function ProductsPage() {
+const ProductsPage = () => {
     //default loading is false
     const [isLoading, setIsLoading] = useState(false)
     //default products is empty array
     const [products, setProducts] = useState([])
+    
+    //use context and hooks to prevent rerender every page shown
+    // const { products, setProducts } = useProducts()
 
     //run once, to get products data
     useEffect(() => {
@@ -23,10 +27,13 @@ export default function ProductsPage() {
             setProducts(products)
             //hide loading
             setIsLoading(false)
+            //to prevent rerender
         }
 
         //call function to get products from API
-        getProducts()
+        if (products.length === 0) {
+            getProducts()
+        }
     }, [])
 
     //check if is loading
@@ -70,3 +77,5 @@ export default function ProductsPage() {
         </Grid>
     )
 }
+
+export default ProductsPage;

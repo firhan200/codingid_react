@@ -10,7 +10,7 @@ export default function App() {
         <BrowserRouter>
             <Header>
                 <Routes>
-                    <Route path="/" Component={ProductsPage} />
+                    <Route path="/" Component={ProductsPage}/>
                     <Route path="/login" Component={LoginPage} />
                     <Route path="/register" Component={RegisterPage} />
                     <Route path="/products/:id" Component={ProductPage} />
