@@ -15,14 +15,11 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
-import useProducts from '../hooks/useProducts';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 const drawerWidth = 240;
 
 function DrawerAppBar({ children, window }) {
-    const { products } = useProducts()
-
     const navigate = useNavigate()
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -60,10 +57,12 @@ function DrawerAppBar({ children, window }) {
     return (
         <Box>
             <CssBaseline />
-            <AppBar component="nav">
+            <AppBar component="nav" sx={{
+                backgroundColor: "#fff"
+            }}>
                 <Toolbar>
                     <IconButton
-                        color="inherit"
+                        color="primary"
                         aria-label="open drawer"
                         edge="start"
                         onClick={handleDrawerToggle}
@@ -72,32 +71,23 @@ function DrawerAppBar({ children, window }) {
                         <MenuIcon />
                     </IconButton>
                     <Typography
+                        color="primary"
                         onClick={() => navigate("/")}
                         variant="h6"
                         component="div"
                         sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
                     >
-                        DLanguage
+                        Otomobil
                     </Typography>
                     <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-                        <NavLink to="/todos">
-                            <Button sx={{ color: '#fff' }}>
-                                Total Products: { products.length }
-                            </Button>
-                        </NavLink>
-                        <NavLink to="/todos">
-                            <Button sx={{ color: '#fff' }}>
-                                Todo App
+                        <NavLink to="/register">
+                            <Button>
+                                Sign up
                             </Button>
                         </NavLink>
                         <NavLink to="/login">
-                            <Button sx={{ color: '#fff' }}>
+                            <Button variant='contained'>
                                 Login
-                            </Button>
-                        </NavLink>
-                        <NavLink to="/register">
-                            <Button sx={{ color: '#fff' }}>
-                                Register
                             </Button>
                         </NavLink>
                     </Box>
@@ -120,7 +110,7 @@ function DrawerAppBar({ children, window }) {
                     {drawer}
                 </Drawer>
             </nav>
-            <Box component="main" sx={{ p: 3 }}>
+            <Box component="main">
                 <Toolbar />
                 {children}
             </Box>

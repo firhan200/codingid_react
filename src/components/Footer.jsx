@@ -3,7 +3,7 @@ import { Box, Container, Grid, Stack, Typography } from "@mui/material";
 export default function Footer() {
     return (
         <Box sx={{
-            backgroundColor: "#F2C94C"
+            backgroundColor: "#fff"
         }}>
             <Container sx={{
                 paddingY: 6
@@ -16,12 +16,12 @@ export default function Footer() {
                     <Grid item xs={12} md={4}>
                         <Typography variant="h5">Produk</Typography>
                         <Grid container>
-                            <Grid xs={6}>Biola</Grid>
-                            <Grid xs={6}>Menyanyi</Grid>
-                            <Grid xs={6}>Gitar</Grid>
-                            <Grid xs={6}>piano</Grid>
-                            <Grid xs={6}>Drum</Grid>
-                            <Grid xs={6}>Saxophone</Grid>
+                            <Grid item xs={6}>Biola</Grid>
+                            <Grid item xs={6}>Menyanyi</Grid>
+                            <Grid item xs={6}>Gitar</Grid>
+                            <Grid item xs={6}>piano</Grid>
+                            <Grid item xs={6}>Drum</Grid>
+                            <Grid item xs={6}>Saxophone</Grid>
                         </Grid>
                     </Grid>
                     <Grid item xs={12} md={4}>
