@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import ProductPage from "./pages/ProductPage";
 import ProductsPage from "./pages/ProductsPage";
 import TodosPage from "./pages/TodosPage";
+import Footer from "./components/Footer";
 
 export default function App() {
     return (
@@ -18,6 +19,7 @@ export default function App() {
                     <Route path="/products/:productId" Component={ProductPage} />
                 </Routes>
             </Header>
+            <Footer />
         </BrowserRouter>
     )
 }
