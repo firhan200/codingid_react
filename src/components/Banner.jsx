@@ -23,10 +23,6 @@ export default function Banner() {
                     <BannerStatistic title="200+" subTitle="Lorem ipsum dolor sir amet"/>
                 </Grid>
             </Box>
-
-            <Box marginY={6}>
-                <Typography textAlign="center" variant="h4" color="primary">Join us for the course</Typography>
-            </Box>
         </>
     )
 }
